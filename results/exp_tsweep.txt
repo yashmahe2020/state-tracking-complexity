@@ -1,0 +1,9 @@
+=== EXP-4: T-independence of m* (transitions) at K=16 (T15 / confound C4) ===
+m* = min transitions with median fresh-test seq-acc >= 0.95; n=3 seeds
+   T  m*_trans
+   8      7840
+  16      8896
+  32     16928
+
+m*(transitions) across T: [7840, 8896, 16928], CV=0.362
+VERDICT: T-DEPENDENT (CV>=0.30): m* varies with T -> inspect / disclose.

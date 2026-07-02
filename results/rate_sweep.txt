@@ -1,0 +1,22 @@
+=== PD-SSM sample-complexity rate sweep (Z_k, sequence-accuracy grok) ===
+grok = SEQUENCE acc >= 0.95; transitions = grok_step * batch(64) * T(16); n=5 seeds
+ hmode    k  n_grok   med_trans  med_step  med_params med_oodpos
+scaled    4     5/5      307200       300         300      1.000
+scaled    6     5/5      384000       375         954      1.000
+scaled    8     5/5      435200       425        2200      1.000
+scaled   12     3/5      742400       725        7236      1.000
+scaled   16     3/5     1126400      1100       16944      1.000
+scaled   24     1/5     9856000      9625       56520      0.999
+scaled   32     0/5        None      None      133216        nan
+  -> scaled: log-log slope = +1.73, r^2 = 0.7865 (n_k=6)
+
+ const    4     5/5      230400       225       16708      1.000
+ const    6     5/5      256000       250       25030      1.000
+ const    8     5/5      435200       425       33352      1.000
+ const   12     4/5    550400.0     537.5       49996      0.995
+ const   16     0/5        None      None       66640        nan
+ const   24     1/5     2892800      2825       99928      0.998
+ const   32     0/5        None      None      133216        nan
+  -> const: log-log slope = +1.42, r^2 = 0.9145 (n_k=5)
+
+PRE-REGISTERED VERDICT: INCONCLUSIVE / consult advisor: slope scaled=+1.73 (r2=0.786), const=+1.42 (r2=0.914); cap_free=True. Not cleanly in a band -> inspect per-k, check lr plateau / coverage at large k before ruling.

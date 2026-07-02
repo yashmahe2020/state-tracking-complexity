@@ -1,0 +1,11 @@
+=== C2 viability gate: diag (commuting) vs PD-SSM (selective) on non-solvable groups ===
+group   arm    k  n  med_final  med_max  grokked
+   S3  diag    6  6      0.374    0.389      0/6
+   S3    pd    6  6      1.000    1.000      6/6
+   S5  diag  120  6      0.125    0.130      0/6
+   S5    pd  120  6      1.000    1.000      6/6
+
+S3: pd=1.000 diag=0.374 gap=+0.626 -> separation CONFIRMED
+S5: pd=1.000 diag=0.125 gap=+0.875 -> separation CONFIRMED
+
+PRE-REGISTERED VERDICT: GATE PASS: on the NON-SOLVABLE group S5, PD-SSM (selective) solves (median 1.000) while the diagonal (commuting) SSM does not (median 0.125, gap +0.875). The expressiveness separation is representational (depth-robust per Merrill TC0/NC1), so the Theta(K log K) sample-complexity claim for PD-SSM is non-vacuous. Proceed to commit C2 + write the Fano/covering proof sketch.

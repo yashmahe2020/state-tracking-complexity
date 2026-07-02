@@ -1,0 +1,17 @@
+=== MECHANISM: minimal hidden dim H for GD generalization (group vs random) ===
+min-H = smallest H with median (n=3) fresh-test seq-acc >= 0.95; data n_seq=3000 (coverage non-limiting); steps=12000
+  fam    k  min_H  minH/K minH/sqrtK
+    Z    8      6    0.75       2.12
+    Z   12      8    0.67       2.31
+    Z   16      8    0.50       2.00
+    Z   20     10    0.50       2.24
+    Z   24      8    0.33       1.63
+ RAND    8     16    2.00       5.66
+ RAND   12  >grid       -          -
+ RAND   16  >grid       -          -
+ RAND   20  >grid       -          -
+ RAND   24  >grid       -          -
+
+[Z] min-H log-log slope vs K = +0.33 (r2=0.604)  (group expect ~0.5 sublinear; random expect ~1.0 linear)
+
+VERDICT: MECHANISM SUPPORTED: group min-H grows SUBLINEARLY (slope 0.33 < 0.8) while random needs H ~ K or is GD-unlearnable -> a faithful low-dim solution EXISTS and GD finds it for groups, not for random. This is the wall-free capacity separation.

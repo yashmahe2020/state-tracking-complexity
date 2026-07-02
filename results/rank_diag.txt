@@ -1,0 +1,15 @@
+=== MECHANISM: effective dimensionality of the learned representation (Z_k vs random) ===
+state_PR = participation ratio of visited-state covariance; op_PR = eff. rank of {M(g)}; H=64; median n=3
+  fam    k test_acc  state_PR   op_PR
+    Z   12     1.00       5.5     7.9
+    Z   16     1.00       5.4     9.1
+    Z   20     1.00       5.6    11.4
+    Z   24     1.00       7.7    14.3
+ RAND   12     0.84      11.7     9.7
+ RAND   16     0.21      11.0    12.3
+ RAND   20     0.01       8.6    15.0
+ RAND   24     0.00       9.6    17.6
+
+state_PR ratio RAND/Z per K [12, 16, 20, 24]: [2.1, 2.0, 1.5, 1.2]
+state_PR log-log slope vs K:  Z=+0.42 (expect ~0, low-dim)  RAND=-0.38 (expect ~1, grows with K)
+VERDICT: mechanism NOT clearly supported (PR gap small or random PR flat) -> be conservative in the paper; the gap is unexplained.

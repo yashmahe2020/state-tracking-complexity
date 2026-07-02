@@ -1,0 +1,8 @@
+=== Mixing check: visited-state marginal deviation from uniform (Setup provenance) ===
+sampled 200000 sequences of length T=16, full-symbol uniform input, seed=0;
+marginal over visited states s_t (t>=1) vs uniform 1/K; theory: exactly uniform (dev=0).
+ group    K  max|marg-1/K|
+  Z_16   16       3.61e-04
+   S_5  120       1.47e-04
+
+VERDICT: deviation is Monte-Carlo sampling noise (O(1/sqrt(N*T))); the marginal is uniform up to sampling, confirming the K^2 cells are hit uniformly.

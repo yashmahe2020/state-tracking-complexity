@@ -1,0 +1,14 @@
+=== PD-SSM STATISTICAL sample complexity m*(K) (fixed-data, fresh-test generalization) ===
+m* = min transitions with median fresh-test SEQ acc >= 0.95; n=3 seeds; T=16
+   k  m*_trans  m*/(KlnK) m*/(K^2 lnK)
+   8      3472      208.7        26.09
+  12      8528      286.0        23.83
+  16      8896      200.5        12.53
+  20     25584      427.0        21.35
+  24     19312      253.2        10.55
+  32     33200      299.4         9.35
+
+K log K  normalized constant: values [208.7, 286.0, 200.5, 427.0, 253.2, 299.4], CV=0.270
+K^2 log K normalized constant: values [26.09, 23.83, 12.53, 21.35, 10.55, 9.35], CV=0.386
+log-log slope of m* vs K = +1.62 (r^2=0.912)
+PRE-REGISTERED VERDICT: INCONCLUSIVE: neither constant flat (CV1 0.270, CV2 0.386); slope +1.62. Widen grid / more seeds / consult advisor.

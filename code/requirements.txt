@@ -1,0 +1,5 @@
+# Reproduction environment for "Complexity of State Tracking in Selective SSMs".
+# Apple Silicon (MLX). Python 3.11. Pinned to the versions the reported numbers were produced under.
+mlx==0.31.2
+numpy==1.26.4
+matplotlib==3.8.0

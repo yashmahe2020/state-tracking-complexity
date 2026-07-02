@@ -1,0 +1,16 @@
+=== RAND K=16 single draw (RAND16s0): width sweep 2K, 4K, 8K x wd {0,0.01,0.1} ===
+N_SEQ=3000 (48000 transitions), steps=40000, fresh-test bar 0.95
+    H  H/K    wd   train    test  gen
+   32    2   0.0    0.60    0.27    .
+   32    2  0.01    0.40    0.17    .
+   32    2   0.1    0.10    0.04    .
+   64    4   0.0    1.00    0.54    .
+   64    4  0.01    0.99    0.25    .
+   64    4   0.1    0.44    0.12    .
+  128    8   0.0    1.00    0.40    .
+  128    8  0.01    1.00    0.25    .
+  128    8   0.1    0.80    0.14    .
+
+train-fit range: 0.10 to 1.00
+fresh-test range: 0.04 to 0.54  (bar 0.95)
+VERDICT: ALL FAIL to generalize (test < bar) at every width up to 8K

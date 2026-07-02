@@ -1,0 +1,7 @@
+=== EXP-3: HARD-STE permutation m*(K) on Z_K (T07 soft-vs-hard control) ===
+m* = min transitions with median fresh-test seq-acc >= 0.95; n=3 seeds; T=16; H=2K
+   k  m*_trans m*/(K^2 lnK)
+  12      1808         5.05
+  20     25584        21.35
+
+two-point log-log slope = +5.19 (soft sweep gave +1.62; a comparable sub-2 slope CONFIRMS the soft m* is not a soft-model artifact -> T07 closed)

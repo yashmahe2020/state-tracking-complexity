@@ -1,0 +1,24 @@
+=== UNIVERSALITY: LSTM m*(K), group (Z) vs random (RAND) ===
+m* = min transitions with median fresh-test seq-acc >= 0.95; n=3 seeds; T=16; H=2K
+(PD-SSM ref: Z slope +1.62; tabular-ERM slope 2.13; GRU ref: Z sub-ERM, RAND fails)
+
+[Z]  m* per k:
+   k=  8  m*=   >grid  best_test@maxcov=0.76
+   k= 12  m*=   >grid  best_test@maxcov=1.00
+   k= 16  m*=   28384  best_test@maxcov=0.98
+   k= 20  m*=   47936  best_test@maxcov=0.99
+   k= 24  m*=   37600  best_test@maxcov=1.00
+   k= 32  m*=   68640  best_test@maxcov=1.00
+   -> log-log slope = +1.11 (r^2=0.749) over k=[16, 20, 24, 32]
+
+[RAND]  m* per k:
+   k=  8  m*=   >grid  best_test@maxcov=0.24
+   k= 12  m*=   >grid  best_test@maxcov=0.00
+   k= 16  m*=   >grid  best_test@maxcov=0.00
+   k= 20  m*=   >grid  best_test@maxcov=0.00
+   k= 24  m*=   >grid  best_test@maxcov=0.00
+   k= 32  m*=   >grid  best_test@maxcov=0.00
+   -> insufficient m* points (gen at k=[])
+
+=== PRE-REGISTERED INTERPRETATION ===
+LSTM EXHIBITS the dichotomy (group slope +1.11<1.9, random fails) -> consistent with a UNIVERSAL recurrent-bias effect.

@@ -1,0 +1,15 @@
+=== EXP-2: min-H for INDEPENDENT random-automaton draws (T12 robustness) ===
+min-H = smallest H with fresh-test seq-acc >= 0.95; H grid up to 2K; N_SEQ=3000; steps=12000
+>2K means GD-unlearnable within the H<=2K budget (the Thm-4 necessity prediction)
+   k  draw   min_H  best_acc@maxH
+  12     0     >2K           0.59
+  12     1     >2K           0.62
+  12     2     >2K           0.62
+  16     0     >2K           0.14
+  16     1     >2K           0.16
+  16     2     >2K           0.14
+  20     0     >2K           0.01
+  20     1     >2K           0.01
+  20     2     >2K           0.01
+
+VERDICT: 9/9 (K,draw) cells GD-unlearnable at H<=2K. ROBUST: random necessity holds across draws (not a single-draw artifact).

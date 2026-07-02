@@ -1,0 +1,23 @@
+=== TABULAR ERM sample complexity m*(K) — pure coverage, optimization-free ===
+m* = min transitions s.t. fresh-test (all-cells-observed) seq-acc >= 0.95; T=16; median over 8 seeds
+  fam    k  m*_trans m*/(K^2 lnK)  m*/(KlnK)
+    Z    8       288         2.16       17.3
+    Z   12       880         2.46       29.5
+    Z   16      1680         2.37       37.9
+    Z   20      2336         1.95       39.0
+    Z   24      3504         1.91       45.9
+    Z   32      6576         1.85       59.3
+    Z   48     15840         1.78       85.2
+    Z   64     27024         1.59      101.5
+   -> [Z] m*/(K^2 lnK) CV=0.139  m*/(K lnK) CV=0.515  slope=+2.14 (r2=0.997)  => CONFIRMS Theta(K^2 logK)
+
+ RAND    8       320         2.40       19.2
+ RAND   12       816         2.28       27.4
+ RAND   16      1552         2.19       35.0
+ RAND   20      2784         2.32       46.5
+ RAND   24      3504         1.91       45.9
+ RAND   32      6576         1.85       59.3
+ RAND   48     15840         1.78       85.2
+ RAND   64     27024         1.59      101.5
+   -> [RAND] m*/(K^2 lnK) CV=0.136  m*/(K lnK) CV=0.506  slope=+2.13 (r2=0.998)  => CONFIRMS Theta(K^2 logK)
+

@@ -1,0 +1,15 @@
+=== EXP-10: RE-POWER PD-SSM statistical m*(K) on Z_k (10 seeds, uniform grid, K to 48) ===
+m* = min transitions with median fresh-test seq-acc >= 0.95; n=10 seeds; T=16; H=2K
+   k  m*_trans  m*/(KlnK) m*/(K^2lnK) seedrate@m*
+   8      2256      135.6       16.95        0.50
+  12      8528      286.0       23.83        0.90
+  16      8896      200.5       12.53        0.60
+  20     13648      227.8       11.39        0.60
+  24     19312      253.2       10.55        0.80
+  32     33200      299.4        9.35        0.90
+  40     50336      341.1        8.53        1.00
+  48     72496      390.1        8.13        1.00
+
+K logK constant CV=0.283; K^2 logK constant CV=0.393
+log-log slope = +1.81 (r^2=0.976) over K=[8, 12, 16, 20, 24, 32, 40, 48]
+DECISION (ruling #5): NOT CLEAN (r^2 0.976 < 0.97 or CV 0.283 >= 0.20) -> KEEP the qualitative 'm* systematically below Theta(K^2 logK) (slope 2.13)'; the re-power CONFIRMS the honest qualitative claim and removes the under-power complaint.

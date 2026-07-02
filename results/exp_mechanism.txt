@@ -1,0 +1,50 @@
+=== MECHANISM: homomorphism alignment vs generalization ===
+n=3 seeds; T=16; sub-coverage n_seq=4*K^1.6/T; A=SS_between(state)/SS_total
+
+[pd]
+   Z    K=16  test=1.00  A_fresh=0.678 A_train=0.689 gap=+0.011 cos_gap=+0.994
+   Z    K=20  test=1.00  A_fresh=0.689 A_train=0.686 gap=-0.003 cos_gap=+0.980
+   Z    K=24  test=1.00  A_fresh=0.681 A_train=0.682 gap=+0.001 cos_gap=+0.954
+   D    K=16  test=1.00  A_fresh=0.725 A_train=0.728 gap=+0.003 cos_gap=+0.991
+   D    K=20  test=1.00  A_fresh=0.773 A_train=0.773 gap=+0.001 cos_gap=+1.010
+   D    K=24  test=1.00  A_fresh=0.685 A_train=0.689 gap=+0.004 cos_gap=+0.973
+   RAND K=16  test=0.02  A_fresh=0.175 A_train=0.175 gap=+0.001 cos_gap=+0.390
+   RAND K=20  test=0.00  A_fresh=0.193 A_train=0.188 gap=-0.005 cos_gap=+0.344
+   RAND K=24  test=0.00  A_fresh=0.152 A_train=0.159 gap=+0.007 cos_gap=+0.299
+
+[gru]
+   Z    K=16  test=0.97  A_fresh=0.507 A_train=0.512 gap=+0.006 cos_gap=+0.667
+   Z    K=20  test=1.00  A_fresh=0.502 A_train=0.498 gap=-0.004 cos_gap=+0.616
+   Z    K=24  test=1.00  A_fresh=0.444 A_train=0.446 gap=+0.002 cos_gap=+0.503
+   D    K=16  test=0.95  A_fresh=0.622 A_train=0.629 gap=+0.006 cos_gap=+0.722
+   D    K=20  test=0.99  A_fresh=0.518 A_train=0.519 gap=+0.001 cos_gap=+0.609
+   D    K=24  test=1.00  A_fresh=0.641 A_train=0.642 gap=+0.001 cos_gap=+0.687
+   RAND K=16  test=0.00  A_fresh=0.034 A_train=0.072 gap=+0.037 cos_gap=+0.053
+   RAND K=20  test=0.00  A_fresh=0.040 A_train=0.063 gap=+0.023 cos_gap=+0.061
+   RAND K=24  test=0.00  A_fresh=0.030 A_train=0.045 gap=+0.015 cos_gap=+0.041
+
+[lstm]
+   Z    K=16  test=0.97  A_fresh=0.374 A_train=0.396 gap=+0.022 cos_gap=+0.496
+   Z    K=20  test=0.98  A_fresh=0.481 A_train=0.486 gap=+0.004 cos_gap=+0.494
+   Z    K=24  test=1.00  A_fresh=0.505 A_train=0.508 gap=+0.004 cos_gap=+0.478
+   D    K=16  test=0.92  A_fresh=0.470 A_train=0.482 gap=+0.012 cos_gap=+0.547
+   D    K=20  test=0.99  A_fresh=0.531 A_train=0.541 gap=+0.010 cos_gap=+0.502
+   D    K=24  test=0.99  A_fresh=0.578 A_train=0.580 gap=+0.002 cos_gap=+0.469
+   RAND K=16  test=0.00  A_fresh=0.067 A_train=0.110 gap=+0.043 cos_gap=+0.048
+   RAND K=20  test=0.00  A_fresh=0.078 A_train=0.099 gap=+0.020 cos_gap=+0.045
+   RAND K=24  test=0.00  A_fresh=0.064 A_train=0.082 gap=+0.017 cos_gap=+0.026
+
+[rnn]
+   Z    K=16  test=0.00  A_fresh=0.007 A_train=0.010 gap=+0.003 cos_gap=+0.054
+   Z    K=20  test=0.00  A_fresh=0.139 A_train=0.144 gap=+0.004 cos_gap=+0.043
+   Z    K=24  test=0.00  A_fresh=0.017 A_train=0.017 gap=-0.000 cos_gap=+0.097
+   D    K=16  test=0.00  A_fresh=0.008 A_train=0.012 gap=+0.004 cos_gap=+0.046
+   D    K=20  test=0.00  A_fresh=0.130 A_train=0.118 gap=-0.012 cos_gap=+0.075
+   D    K=24  test=0.00  A_fresh=0.019 A_train=0.019 gap=-0.000 cos_gap=+0.097
+   RAND K=16  test=0.00  A_fresh=0.035 A_train=0.032 gap=-0.003 cos_gap=+0.018
+   RAND K=20  test=0.00  A_fresh=0.043 A_train=0.042 gap=-0.001 cos_gap=+0.019
+   RAND K=24  test=0.00  A_fresh=0.034 A_train=0.037 gap=+0.003 cos_gap=+0.012
+
+=== P1: corr(A_fresh, test_seq_acc) over 36 cells = +0.950 ===
+GROUP(Z,D): test=0.99 A_fresh=0.506 A_gap=+0.003   RANDOM: test=0.00 A_fresh=0.061 A_gap=+0.013
+P2/P3 hold if GROUP A_fresh high & gap small while RANDOM A_fresh low & gap large.

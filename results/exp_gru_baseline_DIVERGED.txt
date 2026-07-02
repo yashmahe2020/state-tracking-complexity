@@ -1,0 +1,24 @@
+=== EXP-6: NON-SELECTIVE GRU baseline m*(K), group (Z) vs random (RAND) ===
+m* = min transitions with median fresh-test seq-acc >= 0.95; n=3 seeds; T=16; H=2K
+(PD-SSM ref: Z slope +1.62; tabular-ERM slope 2.13; PD-SSM random GD-UNLEARNABLE)
+
+[Z]  m* per k:
+   k=  8  m*=   >grid  best_test@maxcov=0.88
+   k= 12  m*=   >grid  best_test@maxcov=0.91
+   k= 16  m*=   >grid  best_test@maxcov=0.00
+   k= 20  m*=   >grid  best_test@maxcov=0.00
+   k= 24  m*=   >grid  best_test@maxcov=0.00
+   k= 32  m*=   >grid  best_test@maxcov=0.00
+   -> insufficient m* points (generalizes at k=[])
+
+[RAND]  m* per k:
+   k=  8  m*=   >grid  best_test@maxcov=0.63
+   k= 12  m*=   >grid  best_test@maxcov=0.00
+   k= 16  m*=   >grid  best_test@maxcov=0.00
+   k= 20  m*=   >grid  best_test@maxcov=0.00
+   k= 24  m*=   >grid  best_test@maxcov=0.00
+   k= 32  m*=   >grid  best_test@maxcov=0.00
+   -> insufficient m* points (generalizes at k=[])
+
+=== PRE-REGISTERED INTERPRETATION (ruling #5) ===
+GRU does NOT beat the ERM baseline on groups (slope >= ~1.9 / no sub-baseline) while PD-SSM does -> SELECTIVITY is the discriminating bias. Original selective-bias framing STANDS and strengthens.

@@ -1,0 +1,58 @@
+==============================================================================
+(A) UNIVERSALITY  —  does the group/random dichotomy hold across architectures?
+==============================================================================
+
+[PD-SSM]  (480 runs; families=['Z'])
+   GROUP(Z)  K8:3472(t1.00/trnan)  K12:8528(t1.00/trnan)  K16:8896(t1.00/trnan)  K20:25584(t1.00/trnan)  K24:19312(t1.00/trnan)  K32:33200(t1.00/trnan)
+             -> m* log-log slope = +1.62 (r^2=0.912) over K=[8, 12, 16, 20, 24, 32]
+
+[GRU]  (432 runs; families=['RAND', 'Z'])
+   GROUP(Z)  K8:>grid(t0.88/tr1.00)  K12:>grid(t0.95/tr1.00)  K16:28384(t0.97/tr1.00)  K20:47936(t1.00/tr1.00)  K24:37600(t1.00/tr1.00)  K32:68640(t1.00/tr1.00)
+             -> m* log-log slope = +1.11 (r^2=0.749) over K=[16, 20, 24, 32]
+   RANDOM    K8:>grid(t0.11/tr1.00)  K12:>grid(t0.00/tr1.00)  K16:>grid(t0.00/tr1.00)  K20:>grid(t0.00/tr1.00)  K24:>grid(t0.00/tr1.00)  K32:>grid(t0.00/tr1.00)
+             -> NO m* at any K; MEMORIZES (train>=.95) but FAILS test at K=[8, 12, 16, 20, 24, 32]
+
+[LSTM]  (142 runs; families=['Z'])
+   GROUP(Z)  K8:>grid(t0.76/tr1.00)  K12:>grid(t1.00/tr1.00)  K16:28384(t0.98/tr1.00)  K20:47936(t0.98/tr1.00)  K24:>grid(tnan/trnan)  K32:>grid(tnan/trnan)
+             -> m* at K=[16, 20] only (insufficient for slope)
+
+[RNN]  (135 runs; families=['Z'])
+   GROUP(Z)  K8:>grid(t0.00/tr1.00)  K12:>grid(t0.00/tr1.00)  K16:>grid(t0.00/tr1.00)  K20:>grid(t0.00/tr1.00)  K24:>grid(tnan/trnan)  K32:>grid(tnan/trnan)
+             -> NO m* at any K; MEMORIZES (train>=.95) but FAILS test at K=[8, 12, 16, 20]
+
+Reference exponents: tabular-ERM (structure-blind) slope ~2.13; K logK ~1.0; K^2 logK ~2.0.
+Verdict logic: GROUP slope < ~1.9 with RANDOM failing at all K>=12  =>  arch shows the dichotomy.
+
+==============================================================================
+(B) MECHANISM  —  does homomorphism alignment A explain WHO generalizes?
+==============================================================================
+  108 cells completed.
+
+  P1  corr(A_fresh, test_seq_acc) over 108 cells = +0.950  (predict strong positive)
+
+  P2/P3/P4  mean over K,seed  [test_acc | A_fresh | A_train | A_gap | cos_gap]:
+   arch fam     test   A_fr   A_tr    gap   cosg   n
+   pd   Z       1.00  0.683  0.685  0.002  0.974   9
+   pd   D       1.00  0.730  0.732  0.002  0.993   9
+   pd   RAND    0.01  0.174  0.176  0.002  0.341   9
+   gru  Z       0.98  0.505  0.507  0.003  0.598   9
+   gru  D       0.88  0.579  0.586  0.007  0.657   9
+   gru  RAND    0.00  0.034  0.060  0.025  0.051   9
+   lstm Z       0.92  0.463  0.469  0.006  0.495   9
+   lstm D       0.94  0.508  0.515  0.007  0.500   9
+   lstm RAND    0.00  0.069  0.097  0.027  0.038   9
+   rnn  Z       0.00  0.057  0.058  0.002  0.059   9
+   rnn  D       0.00  0.063  0.063  0.000  0.068   9
+   rnn  RAND    0.00  0.039  0.041  0.002  0.018   9
+
+  P4  NON-ABELIAN D: mean test=0.71, mean A_fresh=0.470  (predict group-like: high both)
+
+  A_fresh emergence over training steps (first few group vs random cells):
+   pd   Z16  s2  [0.62  0.68  0.72  0.74  0.75]  final_test=1.00
+   pd   Z16  s0  [0.57  0.63  0.65  0.67  0.68]  final_test=1.00
+   pd   Z16  s1  [0.52  0.54  0.59  0.61  0.62]  final_test=0.99
+   pd   Z20  s0  [0.56  0.62  0.66  0.68  0.69]  final_test=1.00
+   pd   Z20  s1  [0.52  0.59  0.64  0.66  0.68]  final_test=1.00
+   pd   Z20  s2  [0.54  0.65  0.68  0.69  0.70]  final_test=1.00
+
+(analysis is read-only and partial-data-safe; re-run any time to monitor progress)

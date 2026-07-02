@@ -1,0 +1,15 @@
+=== EXP-7: extended-K PD-SSM statistical m*(K) on Z_k (5 seeds, K to 48) ===
+m* = min transitions with median fresh-test seq-acc >= 0.95; n=5 seeds; T=16; H=2K
+   k  m*_trans  m*/(KlnK) m*/(K^2 lnK)
+   8      3472      208.7        26.09
+  12      8528      286.0        23.83
+  16      8896      200.5        12.53
+  20     25584      427.0        21.35
+  24     19312      253.2        10.55
+  32     33200      299.4         9.35
+  40     50336      341.1         8.53
+  48     72496      390.1         8.13
+
+K logK constant CV=0.254; K^2 logK constant CV=0.463
+log-log slope = +1.63 (r^2=0.956) over K=[8, 12, 16, 20, 24, 32, 40, 48]
+DECISION (ruling #5): NOT CLEAN (r^2 0.956 < 0.97 or CV 0.254 >= 0.20) -> RETREAT to qualitative 'm* systematically below the Theta(K^2 logK) baseline (slope 2.13)'; DROP the two-decimal slope from abstract/claims.

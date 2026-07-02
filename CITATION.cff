@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper it accompanies."
+type: software
+title: "Structure, Not Size: reproduction code for the sample and parameter complexity of state tracking in selective state-space models"
+authors:
+  - family-names: Maheshwari
+    given-names: Yash
+version: 1.0.0
+date-released: 2026-07-01
+license: MIT
+repository-code: "https://github.com/yashmahe2020/state-tracking-complexity"
+keywords:
+  - sample complexity
+  - parameter complexity
+  - state tracking
+  - state-space models
+  - gradient descent
+preferred-citation:
+  type: article
+  title: "Structure, Not Size: The Sample and Parameter Complexity of State Tracking in Selective State-Space Models"
+  authors:
+    - family-names: Maheshwari
+      given-names: Yash
+  year: 2026

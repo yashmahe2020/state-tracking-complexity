@@ -1,0 +1,21 @@
+=== DE-CONFOUND: PD-SSM m*(K) at lr0.003 (MATCHED to GRU) ===
+Compare to GRU lr0.003 group m*(trans): >grid/>grid/28384/47936/37600/68640 (K=8..32),
+and PD-SSM lr0.01 group m*(trans): 3472/8528/8896/25584/19312/33200 (slope +1.62).
+
+[Z] m* per k:
+   k=  8  m*=    3472  best_test@maxcov=1.00  m*/(K^2 lnK)=26.09
+   k= 12  m*=    8528  best_test@maxcov=1.00  m*/(K^2 lnK)=23.83
+   k= 16  m*=   15888  best_test@maxcov=1.00  m*/(K^2 lnK)=22.38
+   k= 20  m*=   13648  best_test@maxcov=1.00  m*/(K^2 lnK)=11.39
+   k= 24  m*=   37600  best_test@maxcov=1.00  m*/(K^2 lnK)=20.54
+   k= 32  m*=   33200  best_test@maxcov=1.00  m*/(K^2 lnK)=9.35
+   -> log-log slope = +1.69 (r^2=0.906) over k=[8, 12, 16, 20, 24, 32]
+
+[RAND] m* per k:
+   k=  8  m*=   >grid  best_test@maxcov=0.41  m*/(K^2 lnK)=nan
+   k= 12  m*=   >grid  best_test@maxcov=0.10  m*/(K^2 lnK)=nan
+   k= 16  m*=   >grid  best_test@maxcov=0.02  m*/(K^2 lnK)=nan
+   k= 20  m*=   >grid  best_test@maxcov=0.01  m*/(K^2 lnK)=nan
+   k= 24  m*=   >grid  best_test@maxcov=0.00  m*/(K^2 lnK)=nan
+   k= 32  m*=   >grid  best_test@maxcov=0.00  m*/(K^2 lnK)=nan
+   -> insufficient m* points (gen at k=[])
