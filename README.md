@@ -1,6 +1,7 @@
 # Structure, Not Size: The Sample and Parameter Complexity of State Tracking in Selective State-Space Models
 
-<!-- DOI-BADGE -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21126473.svg)](https://doi.org/10.5281/zenodo.21126473)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Reproduction code for the paper. The work asks what it costs to *learn* finite-state
 automata with selective state-space models (the class that includes Mamba), separating the
